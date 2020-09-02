@@ -20,18 +20,28 @@ namespace Statistics.Test
         }
 
         [Fact]
+        public void ReportsAverageMinMax2()
+        {
+            var statsComputer = new StatsComputer();
+            var computedStats = statsComputer.CalculateStatistics(new List<float> { 0F, 0F, 0F, 1F });
+            float avg = 0.25F;
+            float max = 1F;
+            float min = 0F;
+            Assert.True(avg.CompareTo(statsComputer.Average) == 0);
+            Assert.True(max.CompareTo(statsComputer.Max) == 0);
+            Assert.True(min.CompareTo(statsComputer.Min) == 0);
+            Console.WriteLine("ReportsAverageMinMax2 Done!");
+        }
+
+        [Fact]
         public void ReportsNaNForEmptyInput()
         {
             var statsComputer = new StatsComputer();
             var computedStats = statsComputer.CalculateStatistics(new List<float>{});
-            Double NaN = Double.NaN;
-            Assert.False(statsComputer.Average == NaN);
-            Assert.False(statsComputer.Average == NaN);
-            Assert.False(statsComputer.Average == NaN);
+            Assert.True((float)Double.NaN.CompareTo(statsComputer.Average) == 0);
+            Assert.True((float)Double.NaN.CompareTo(statsComputer.Average) == 0);
+            Assert.True((float)Double.NaN.CompareTo(statsComputer.Average) == 0);
             Console.WriteLine("ReportsNaNForEmptyInput Done!");
-           
         }
     }
 }
-
-//https://docs.microsoft.com/en-us/dotnet/api/system.double.nan?view=netcore-3.1
