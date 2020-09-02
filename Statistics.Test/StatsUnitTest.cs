@@ -1,6 +1,7 @@
 using System;
 using Xunit;
 using Statistics;
+using System.Collections.Generic;
 
 namespace Statistics.Test
 {
@@ -10,21 +11,27 @@ namespace Statistics.Test
         public void ReportsAverageMinMax()
         {
             var statsComputer = new StatsComputer();
-            var computedStats = statsComputer.CalculateStatistics(
-                new List<___>{1.5, 8.9, 3.2, 4.5});
+            var computedStats = statsComputer.CalculateStatistics(new List<float>{1.5F, 8.9F, 3.2F, 4.5F});
             float epsilon = 0.001F;
-            Assert.True(Math.Abs(statsComputer.average - 4.525) <= epsilon);
-            Assert.True(Math.Abs(statsComputer.max - 8.9) <= epsilon);
-            Assert.True(Math.Abs(statsComputer.min - 1.5) <= epsilon);
+            Assert.True(Math.Abs(statsComputer.Average - 4.525) <= epsilon);
+            Assert.True(Math.Abs(statsComputer.Max - 8.9) <= epsilon);
+            Assert.True(Math.Abs(statsComputer.Min - 1.5) <= epsilon);
+            Console.WriteLine("ReportsAverageMinMax Done!");
         }
+
+        [Fact]
         public void ReportsNaNForEmptyInput()
         {
             var statsComputer = new StatsComputer();
-            var computedStats = statsComputer.CalculateStatistics(
-                new List<___>{});
-            //All fields of computedStats (average, max, min) must be
-            //Double.NaN (not-a-number), as described in
-            //https://docs.microsoft.com/en-us/dotnet/api/system.double.nan?view=netcore-3.1
+            var computedStats = statsComputer.CalculateStatistics(new List<float>{});
+            Double NaN = Double.NaN;
+            Assert.True(statsComputer.Average <= NaN);
+            Assert.True(statsComputer.Average <= NaN);
+            Assert.True(statsComputer.Average <= NaN);
+            Console.WriteLine("ReportsNaNForEmptyInput Done!");
+           
         }
     }
 }
+
+//https://docs.microsoft.com/en-us/dotnet/api/system.double.nan?view=netcore-3.1
