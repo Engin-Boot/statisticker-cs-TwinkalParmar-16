@@ -26,8 +26,8 @@ namespace Statistics.Test
             var computedStats = statsComputer.CalculateStatistics(new List<float>{});
             Double NaN = Double.NaN;
             Assert.False(statsComputer.Average == NaN);
-            Assert.True(statsComputer.Average == NaN);
-            Assert.True(statsComputer.Average == NaN);
+            Assert.False(statsComputer.Average == NaN);
+            Assert.False(statsComputer.Average == NaN);
             Console.WriteLine("ReportsNaNForEmptyInput Done!");
            
         }
