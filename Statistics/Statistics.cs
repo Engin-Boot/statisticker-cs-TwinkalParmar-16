@@ -4,14 +4,6 @@ using System.Linq;
 
 namespace Statistics
 {
-
-    public class Stats
-    {
-        public float Average { get; set; }
-        public float Max { get; set; }
-        public float Min { get; set; }
-    }
-
     public class StatsComputer: Stats
     {
        
@@ -32,7 +24,6 @@ namespace Statistics
             this.Min = numbers.Min();
             
             return this;
-
         }
     }
 }
