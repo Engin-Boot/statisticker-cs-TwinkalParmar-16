@@ -10,7 +10,6 @@ namespace Statistics
         public Stats CalculateStatistics(List<float> numbers) {
 
             //Implement statistics here
-            //Stats avgMinMax = new Stats();
             int sizeOfList = numbers.Count;
             if (sizeOfList == 0)
             {
