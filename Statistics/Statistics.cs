@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -17,6 +17,11 @@ namespace Statistics
                 this.Max = (float)Double.NaN;
                 this.Min = (float)Double.NaN;
                 return this;
+            }
+            while(numbers.Contains((float)Double.NaN))
+            {
+                int indexOfElementConainingNanValue = numbers.IndexOf((float)Double.NaN);
+                numbers[indexOfElementConainingNanValue] = 0F; ;
             }
             this.Average = numbers.Average();
             this.Max = numbers.Max();
