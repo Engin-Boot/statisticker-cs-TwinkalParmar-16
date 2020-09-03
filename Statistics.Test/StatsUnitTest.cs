@@ -22,9 +22,9 @@ namespace Statistics.Test
         public void ReportStatisticsForInputContaingNaNs()
         {
             var statsComputer = new StatsComputer();
-            var computedStats = statsComputer.CalculateStatistics(new List<float> { 0F, 0F, (float)Double.NaN, 1F ,(float)Double.NaN});
-            float avg = 0.2F;
-            float max = 1F;
+            var computedStats = statsComputer.CalculateStatistics(new List<float> { 0F, 0F, (float)Double.NaN, 0F ,(float)Double.NaN});
+            float avg = 0F;
+            float max = 0F;
             float min = 0F;
             Assert.True(avg.CompareTo(statsComputer.Average) == 0);
             Assert.True(max.CompareTo(statsComputer.Max) == 0);
